@@ -34,7 +34,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     if (powerup == 0) {
         sprites.destroy(sprite, effects.disintegrate, 100)
         game.gameOver(false)
-        music.play(music.stringPlayable("B G B B A - F D ", 120), music.PlaybackMode.InBackground)
+        music.play(music.stringPlayable("C A C A C A C E ", 120), music.PlaybackMode.InBackground)
     }
 })
 let myPowerup: Sprite = null
@@ -186,7 +186,13 @@ game.onUpdateInterval(2100, function () {
     myFood.setPosition(scene.screenWidth(), randint(5, 115))
     myFood.vx = -75
 })
-game.onUpdateInterval(100000, function () {
+game.onUpdateInterval(10000, function () {
+    if (powerup == 1) {
+        mySprite.sy = 1
+        powerup = 0
+    }
+})
+game.onUpdateInterval(10000, function () {
     myPowerup = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -207,10 +213,4 @@ game.onUpdateInterval(100000, function () {
         `, SpriteKind.Powerup)
     myPowerup.setPosition(scene.screenWidth(), randint(5, 115))
     myPowerup.vx = -75
-})
-game.onUpdateInterval(10000, function () {
-    if (powerup == 1) {
-        mySprite.sy = 1
-        powerup = 0
-    }
 })
