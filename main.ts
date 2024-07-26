@@ -34,7 +34,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     if (powerup == 0) {
         sprites.destroy(sprite, effects.disintegrate, 100)
         game.gameOver(false)
-        music.play(music.stringPlayable("C A C A C A C E ", 120), music.PlaybackMode.InBackground)
     }
 })
 let myPowerup: Sprite = null
@@ -60,7 +59,7 @@ assets.animation`swim right`,
 200,
 true
 )
-music.play(music.stringPlayable("C A G E C D A C ", 120), music.PlaybackMode.LoopingInBackground)
+music.play(music.stringPlayable("A B C5 B G D B E ", 120), music.PlaybackMode.InBackground)
 game.onUpdateInterval(5000, function () {
     myEnemy = sprites.create(img`
         .............................................................................
